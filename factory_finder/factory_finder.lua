@@ -23,6 +23,7 @@ local function update_board(board, factory_to_highlight)
         local config = factory_to_highlight["config"]
         board.setCursorPos(1, 2)
         board.write("Usine à " .. factory_to_highlight["item"])
+        board.setCursorPos(1, 3)
         board.write("Position : (X:" .. config["x"] .. ", Y:" .. config["y"] .. ", Z:" .. config["z"])
     end
     rs.setOutput("front", true)
