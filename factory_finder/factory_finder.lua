@@ -1,14 +1,11 @@
-local function drawMap(mon, map)
-    local old_term = term.current()
-    term.redirect(mon)
+local function draw_map(mon, map)
     paintutils.drawImage(map, 0, 0)
-    term.redirect(old_term)
 end
 
-local function drawPoints(factory_to_highlight)
+local function draw_points(factory_to_highlight)
     if factory_to_highlight["config"] ~= nil then
         paintutils.drawPixel(factory_to_highlight["config"]["map_x"], factory_to_highlight["config"]["map_y"], colors
-        .red)
+            .red)
     end
 end
 
@@ -29,8 +26,11 @@ local function update_board(board, factory_to_highlight)
 end
 
 local function render(mon, board, map, factory_to_highlight)
-    drawMap(mon, map)
-    drawPoints(factory_to_highlight)
+    local old_term = term.current()
+    term.redirect(mon)
+    draw_map(mon, map)
+    draw_points(factory_to_highlight)
+    term.redirect(old_term)
     update_board(board, factory_to_highlight)
 end
 
