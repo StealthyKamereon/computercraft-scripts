@@ -22,6 +22,9 @@ local function update_board(board, factory_to_highlight)
         board.setCursorPos(1, 2)
         board.write("Usine à " .. factory_to_highlight["item"])
     end
+    rs.setOutput("front", true)
+    sleep(0.1)
+    rs.setOutput("front", false)
 end
 
 local function render(mon, board, map, factory_to_highlight)
@@ -62,6 +65,7 @@ local function main()
     local config = load_config("config.json")
     while true do
         update(mon, board, depot, config, map)
+        sleep(1)
     end
 end
 
