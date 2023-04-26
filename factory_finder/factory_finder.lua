@@ -10,6 +10,9 @@ local function draw_points(factory_to_highlight)
 end
 
 local function update_board(board, factory_to_highlight)
+    board.clear()
+    board.setCursorPos(1, 1)
+    board.write("Où est l'usine ?")
     if factory_to_highlight["item"] == "" then
         board.setCursorPos(1, 2)
         board.write("Posez un item sur le dépot.")
@@ -17,8 +20,10 @@ local function update_board(board, factory_to_highlight)
         board.setCursorPos(1, 2)
         board.write("Pas encore d'usine pour cet item.")
     else
+        local config = factory_to_highlight["config"]
         board.setCursorPos(1, 2)
         board.write("Usine à " .. factory_to_highlight["item"])
+        board.write("Position : (X:" .. config["x"] .. ", Y:" .. config["y"] .. ", Z:" .. config["z"])
     end
     rs.setOutput("front", true)
     os.sleep(0.1)
