@@ -7,7 +7,7 @@ end
 
 local function drawPoints(factory_to_highlight)
     if factory_to_highlight["config"] ~= nil then
-        paintutils.drawPixel(factory_to_highlight["map_x"], factory_to_highlight["map_y"], "red")
+        paintutils.drawPixel(factory_to_highlight["config"]["map_x"], factory_to_highlight["config"]["map_y"], "red")
     end
 end
 
@@ -34,8 +34,7 @@ local function render(mon, board, map, factory_to_highlight)
 end
 
 local function clean_spaces(str)
-    local x = { string.gsub(str, "%s*$", "")[1] }
-    return x[1]
+    return string.gsub(str, "%s*$", "")
 end
 
 local function read_item(depot)
