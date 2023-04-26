@@ -7,7 +7,8 @@ end
 
 local function drawPoints(factory_to_highlight)
     if factory_to_highlight["config"] ~= nil then
-        paintutils.drawPixel(factory_to_highlight["config"]["map_x"], factory_to_highlight["config"]["map_y"], "red")
+        paintutils.drawPixel(factory_to_highlight["config"]["map_x"], factory_to_highlight["config"]["map_y"], colors
+        .red)
     end
 end
 
