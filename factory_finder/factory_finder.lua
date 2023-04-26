@@ -1,5 +1,5 @@
 local function drawMap(mon, map)
-    old_term = term.current()
+    local old_term = term.current()
     term.redirect(mon)
     paintutils.drawImage(map, 0, 0)
     term.redirect(old_term)
@@ -31,12 +31,13 @@ local function render(mon, board, map, factory_to_highlight)
 end
 
 local function clean_spaces(str)
-    x = { string.gsub(str, "%s*$", "")[1] }
+    local x = { string.gsub(str, "%s*$", "")[1] }
     return x[1]
 end
 
 local function read_item(depot)
-    item_info = clean_spaces(depot.getLine(1))
+    local item_info = clean_spaces(depot.getLine(1))
+    return item_info
 end
 
 local function update(mon, board, depot, config, map)
@@ -47,8 +48,8 @@ local function update(mon, board, depot, config, map)
 end
 
 local function load_config(filename)
-    config_file = fs.open(filename, "r")
-    config_str = config_file.readAll()
+    local config_file = fs.open(filename, "r")
+    local config_str = config_file.readAll()
     config_file.close()
     return textutils.unserialiseJSON(config_str)
 end
