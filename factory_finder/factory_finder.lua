@@ -27,7 +27,7 @@ end
 local function render(mon, board, map, factory_to_highlight)
     drawMap(mon, map)
     drawPoints(factory_to_highlight)
-    update_board(factory_to_highlight)
+    update_board(board, factory_to_highlight)
 end
 
 local function clean_spaces(str)
