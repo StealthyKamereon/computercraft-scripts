@@ -12,12 +12,12 @@ local function drawPoints(factory_to_highlight)
 end
 
 local function update_board(board, factory_to_highlight)
-    if factory_to_highlight["config"] == nil then
-        board.setCursorPos(1, 2)
-        board.write("Pas encore d'usine pour cet item.")
-    elseif factory_to_highlight["item"] == "" then
+    if factory_to_highlight["item"] == "" then
         board.setCursorPos(1, 2)
         board.write("Posez un item sur le dépot.")
+    elseif factory_to_highlight["config"] == nil then
+        board.setCursorPos(1, 2)
+        board.write("Pas encore d'usine pour cet item.")
     else
         board.setCursorPos(1, 2)
         board.write("Usine à " .. factory_to_highlight["item"])
