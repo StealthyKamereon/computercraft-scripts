@@ -34,9 +34,9 @@ local function update_board(board, factory_to_highlight)
         board.setCursorPos(3, 6)
         board.write("Z: " .. config["z"])
     end
-    rs.setOutput("front", true)
+    rs.setOutput("left", true)
     os.sleep(0.1)
-    rs.setOutput("front", false)
+    rs.setOutput("left", false)
 end
 
 local function render(mon, board, map, factory_to_highlight)
