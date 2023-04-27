@@ -18,7 +18,9 @@ local function update_board(board, factory_to_highlight)
         board.write("Posez un item sur le dépot.")
     elseif factory_to_highlight["config"] == nil then
         board.setCursorPos(1, 2)
-        board.write("Pas encore d'usine pour cet item.")
+        board.write("Pas encore d'usine")
+        board.setCursorPos(1, 3)
+        board.write("pour cet item.")
     else
         local config = factory_to_highlight["config"]
         board.setCursorPos(1, 2)
