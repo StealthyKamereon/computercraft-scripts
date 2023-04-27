@@ -1,5 +1,5 @@
 local function draw_map(mon, map)
-    paintutils.drawImage(map, 0, 0)
+    paintutils.drawImage(map, 1, 1)
 end
 
 local function draw_points(factory_to_highlight)
@@ -75,8 +75,8 @@ local function main()
     local mon = peripheral.find("monitor")
     local board = peripheral.find("create_source")
     local depot = peripheral.find("create_target")
-    local map = paintutils.loadImage("map.nfp")
-    local config = load_config("config.json")
+    local map = paintutils.loadImage("/factory_finder/map.nfp")
+    local config = load_config("/factory_finder/config.json")
     while true do
         update(mon, board, depot, config, map)
         os.sleep(1)
